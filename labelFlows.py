@@ -1,6 +1,6 @@
 """
 Use:
-    python3 label_flows_strict.py <flows.csv> <manifest.csv> <output.csv>
+    python3 labelFlows.py <flows.csv> <manifest.csv> <output.csv>
 
 """
 import sys
@@ -8,7 +8,7 @@ import pandas as pd
 
 
 def to_ms(ts):
-    """ISO8601 -> epoch milidetik UTC."""
+    """ISO8601 -> epoch UTC in milliseconds."""
     t = pd.Timestamp(ts)
     t = t.tz_localize("UTC") if t.tzinfo is None else t.tz_convert("UTC")
     return int(t.timestamp() * 1000)
